@@ -7,7 +7,7 @@ import { getAuthUser, requireRole } from '@/lib/auth'
  * /api/users/{id}:
  *   get:
  *     tags: [Users]
- *     summary: Get user by ID (admin, moderator only)
+ *     summary: Получить пользователя по ID (admin, moderator)
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -18,16 +18,16 @@ import { getAuthUser, requireRole } from '@/lib/auth'
  *           type: string
  *     responses:
  *       200:
- *         description: User profile
+ *         description: Профиль пользователя
  *       401:
- *         description: Unauthorized
+ *         description: Не авторизован
  *       403:
- *         description: Forbidden
+ *         description: Доступ запрещён
  *       404:
- *         description: User not found
+ *         description: Пользователь не найден
  *   patch:
  *     tags: [Users]
- *     summary: Update user role (admin only)
+ *     summary: Изменить роль пользователя (только admin)
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -49,14 +49,14 @@ import { getAuthUser, requireRole } from '@/lib/auth'
  *                 enum: [admin, moderator, viewer]
  *     responses:
  *       200:
- *         description: Role updated
+ *         description: Роль обновлена
  *       401:
- *         description: Unauthorized
+ *         description: Не авторизован
  *       403:
- *         description: Forbidden
+ *         description: Доступ запрещён
  *   delete:
  *     tags: [Users]
- *     summary: Delete user (admin only)
+ *     summary: Удалить пользователя (только admin)
  *     security:
  *       - bearerAuth: []
  *     parameters:
@@ -67,11 +67,11 @@ import { getAuthUser, requireRole } from '@/lib/auth'
  *           type: string
  *     responses:
  *       200:
- *         description: User deleted
+ *         description: Пользователь удалён
  *       401:
- *         description: Unauthorized
+ *         description: Не авторизован
  *       403:
- *         description: Forbidden
+ *         description: Доступ запрещён
  */
 
 export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {

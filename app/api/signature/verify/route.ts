@@ -6,8 +6,8 @@ import { verifySignature } from '@/lib/crypto'
  * /api/signature/verify:
  *   post:
  *     tags: [Signature]
- *     summary: "Scenario 1: Server verifies client's signature"
- *     description: Client signs a message with their private key and sends the message, signature, and public key. Server verifies authenticity.
+ *     summary: "Сценарий 1: Сервер верифицирует подпись клиента"
+ *     description: Клиент подписывает сообщение своим приватным ключом и отправляет сообщение, подпись и публичный ключ. Сервер проверяет подлинность.
  *     requestBody:
  *       required: true
  *       content:
@@ -20,13 +20,13 @@ import { verifySignature } from '@/lib/crypto'
  *                 type: string
  *               signature:
  *                 type: string
- *                 description: Base64-encoded signature
+ *                 description: Подпись в формате Base64
  *               publicKey:
  *                 type: string
- *                 description: PEM-encoded RSA public key
+ *                 description: Публичный RSA ключ в формате PEM
  *     responses:
  *       200:
- *         description: Verification result
+ *         description: Результат верификации
  *         content:
  *           application/json:
  *             schema:
@@ -37,7 +37,7 @@ import { verifySignature } from '@/lib/crypto'
  *                 message:
  *                   type: string
  *       400:
- *         description: Missing required fields
+ *         description: Отсутствуют обязательные поля
  */
 export async function POST(req: NextRequest) {
   const { message, signature, publicKey } = await req.json()

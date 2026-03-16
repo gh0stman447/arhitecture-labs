@@ -6,7 +6,7 @@ import { supabase } from '@/lib/supabase'
  * /api/auth/login:
  *   post:
  *     tags: [Auth]
- *     summary: Login with email and password
+ *     summary: Вход по email и паролю
  *     requestBody:
  *       required: true
  *       content:
@@ -22,7 +22,7 @@ import { supabase } from '@/lib/supabase'
  *                 type: string
  *     responses:
  *       200:
- *         description: Login successful, returns JWT token
+ *         description: Успешный вход, возвращает JWT токен
  *         content:
  *           application/json:
  *             schema:
@@ -30,10 +30,10 @@ import { supabase } from '@/lib/supabase'
  *               properties:
  *                 token:
  *                   type: string
- *                 user:la
+ *                 user:
  *                   type: object
  *       401:
- *         description: Invalid credentials
+ *         description: Неверные учётные данные
  */
 export async function POST(req: NextRequest) {
   const { email, password } = await req.json()

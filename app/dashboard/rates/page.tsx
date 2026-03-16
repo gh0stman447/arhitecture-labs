@@ -56,18 +56,18 @@ export default function RatesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="min-h-screen bg-gray-100 p-8">
       <div className="max-w-2xl mx-auto space-y-8">
         <div className="flex items-center gap-4">
-          <button onClick={() => router.push('/dashboard')} className="text-sm text-gray-500 hover:text-gray-700">
+          <button onClick={() => router.push('/dashboard')} className="text-sm text-gray-700 font-medium hover:text-gray-900">
             ← Dashboard
           </button>
-          <h1 className="text-2xl font-bold">Exchange Rates (ЧНБ)</h1>
+          <h1 className="text-2xl font-bold text-gray-900">Exchange Rates (ЧНБ)</h1>
         </div>
 
         {/* Sync */}
         <div className="bg-white rounded-lg shadow p-6 space-y-4">
-          <h2 className="text-lg font-semibold">Sync from CNB</h2>
+          <h2 className="text-lg font-semibold text-gray-900">Sync from CNB</h2>
 
           <button
             onClick={syncToday}
@@ -81,10 +81,10 @@ export default function RatesPage() {
             <p className="text-sm font-medium text-gray-700 mb-2">Sync date range</p>
             <div className="flex gap-2 items-center flex-wrap">
               <input type="date" value={syncStart} onChange={e => setSyncStart(e.target.value)}
-                className="border rounded px-3 py-2 text-sm" />
-              <span className="text-gray-500 text-sm">—</span>
+                className="border border-gray-300 rounded px-3 py-2 text-sm text-gray-900" />
+              <span className="text-gray-700 text-sm">—</span>
               <input type="date" value={syncEnd} onChange={e => setSyncEnd(e.target.value)}
-                className="border rounded px-3 py-2 text-sm" />
+                className="border border-gray-300 rounded px-3 py-2 text-sm text-gray-900" />
               <button
                 onClick={syncPeriod}
                 disabled={syncLoading}
@@ -104,22 +104,22 @@ export default function RatesPage() {
 
         {/* Report */}
         <div className="bg-white rounded-lg shadow p-6 space-y-4">
-          <h2 className="text-lg font-semibold">Report — min/max/avg per currency</h2>
+          <h2 className="text-lg font-semibold text-gray-900">Report — min/max/avg per currency</h2>
 
           <div className="space-y-3">
             <div className="flex gap-2 items-center flex-wrap">
               <input type="date" value={reportStart} onChange={e => setReportStart(e.target.value)}
-                className="border rounded px-3 py-2 text-sm" />
-              <span className="text-gray-500 text-sm">—</span>
+                className="border border-gray-300 rounded px-3 py-2 text-sm text-gray-900" />
+              <span className="text-gray-700 text-sm">—</span>
               <input type="date" value={reportEnd} onChange={e => setReportEnd(e.target.value)}
-                className="border rounded px-3 py-2 text-sm" />
+                className="border border-gray-300 rounded px-3 py-2 text-sm text-gray-900" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Currencies (comma-separated)</label>
+              <label className="block text-sm font-semibold text-gray-800 mb-1">Currencies (comma-separated)</label>
               <input
                 value={reportCurrencies}
                 onChange={e => setReportCurrencies(e.target.value)}
-                className="border rounded px-3 py-2 text-sm w-full"
+                className="border border-gray-300 rounded px-3 py-2 text-sm text-gray-900 w-full"
                 placeholder="USD,EUR,GBP"
               />
             </div>

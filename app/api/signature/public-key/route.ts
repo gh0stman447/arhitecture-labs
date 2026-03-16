@@ -6,11 +6,11 @@ import { getServerKeyPair } from '@/lib/server-keys'
  * /api/signature/public-key:
  *   get:
  *     tags: [Signature]
- *     summary: "Scenario 2: Get server's public key"
- *     description: Client requests the server's public key to verify server-signed messages.
+ *     summary: "Сценарий 2: Получить публичный ключ сервера"
+ *     description: Клиент запрашивает публичный ключ сервера для верификации подписанных сервером сообщений.
  *     responses:
  *       200:
- *         description: Server's public key in PEM format
+ *         description: Публичный ключ сервера в формате PEM
  *         content:
  *           application/json:
  *             schema:

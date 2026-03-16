@@ -94,19 +94,19 @@ export default function SignaturePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="min-h-screen bg-gray-100 p-8">
       <div className="max-w-2xl mx-auto space-y-8">
         <div className="flex items-center gap-4">
-          <button onClick={() => router.push('/dashboard')} className="text-sm text-gray-500 hover:text-gray-700">
+          <button onClick={() => router.push('/dashboard')} className="text-sm text-gray-700 font-medium hover:text-gray-900">
             ← Dashboard
           </button>
-          <h1 className="text-2xl font-bold">Digital Signature (ЭЦП)</h1>
+          <h1 className="text-2xl font-bold text-gray-900">Digital Signature (ЭЦП)</h1>
         </div>
 
         {/* Scenario 1 */}
         <div className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-lg font-semibold mb-1">Scenario 1 — Client signs, server verifies</h2>
-          <p className="text-sm text-gray-500 mb-4">
+          <h2 className="text-lg font-semibold mb-1 text-gray-900">Scenario 1 — Client signs, server verifies</h2>
+          <p className="text-sm text-gray-700 mb-4">
             Browser generates RSA key pair → signs message with private key → server verifies with public key
           </p>
 
@@ -115,7 +115,7 @@ export default function SignaturePage() {
             value={s1Message}
             onChange={e => setS1Message(e.target.value)}
             rows={2}
-            className="w-full border rounded px-3 py-2 text-sm mb-3"
+            className="w-full border border-gray-300 rounded px-3 py-2 text-sm text-gray-900 mb-3"
           />
 
           <button
@@ -135,8 +135,8 @@ export default function SignaturePage() {
 
         {/* Scenario 2 */}
         <div className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-lg font-semibold mb-1">Scenario 2 — Server signs, client verifies</h2>
-          <p className="text-sm text-gray-500 mb-4">
+          <h2 className="text-lg font-semibold mb-1 text-gray-900">Scenario 2 — Server signs, client verifies</h2>
+          <p className="text-sm text-gray-700 mb-4">
             Client gets server's public key → requests a signed message → verifies signature in browser
           </p>
 
@@ -153,7 +153,7 @@ export default function SignaturePage() {
               <div className={`p-3 rounded text-sm ${s2Data.valid ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
                 <span className="font-medium">{s2Data.valid ? '✓ Valid' : '✗ Invalid'}</span> — Signature verified in browser using server's public key
               </div>
-              <div className="text-xs text-gray-500 space-y-1">
+              <div className="text-xs text-gray-700 space-y-1">
                 <p><span className="font-medium">Message:</span> {s2Data.message}</p>
                 <p className="break-all"><span className="font-medium">Signature:</span> {s2Data.signature.slice(0, 60)}...</p>
               </div>

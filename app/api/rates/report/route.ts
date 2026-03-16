@@ -6,7 +6,7 @@ import { supabaseAdmin } from '@/lib/supabase'
  * /api/rates/report:
  *   get:
  *     tags: [Rates]
- *     summary: Get exchange rate report (min/max/avg per currency)
+ *     summary: Получить отчёт по курсам валют (min/max/avg)
  *     parameters:
  *       - in: query
  *         name: startDate
@@ -27,11 +27,11 @@ import { supabaseAdmin } from '@/lib/supabase'
  *         required: false
  *         schema:
  *           type: string
- *         description: Comma-separated list of currencies
+ *         description: Список валют через запятую
  *         example: "USD,EUR"
  *     responses:
  *       200:
- *         description: Report with min/max/avg per currency for 1 unit
+ *         description: Отчёт с min/max/avg за 1 единицу валюты
  *         content:
  *           application/json:
  *             schema:
@@ -42,7 +42,7 @@ import { supabaseAdmin } from '@/lib/supabase'
  *                 currencies:
  *                   type: object
  *       400:
- *         description: Missing required parameters
+ *         description: Отсутствуют обязательные параметры
  */
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url)

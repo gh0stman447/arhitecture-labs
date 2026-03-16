@@ -13,5 +13,9 @@ export default function DocsPage() {
 
   if (!spec) return <div className="p-8">Loading docs...</div>
 
-  return <SwaggerUI spec={spec} />
+  return (
+    <div style={{ colorScheme: 'light', background: '#fff', minHeight: '100vh' }}>
+      <SwaggerUI spec={spec} />
+    </div>
+  )
 }

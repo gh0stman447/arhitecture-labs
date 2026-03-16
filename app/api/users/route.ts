@@ -7,12 +7,12 @@ import { getAuthUser, requireRole } from '@/lib/auth'
  * /api/users:
  *   get:
  *     tags: [Users]
- *     summary: Get all users (admin, moderator only)
+ *     summary: Получить список всех пользователей (admin, moderator)
  *     security:
  *       - bearerAuth: []
  *     responses:
  *       200:
- *         description: List of users
+ *         description: Список пользователей
  *         content:
  *           application/json:
  *             schema:
@@ -20,9 +20,9 @@ import { getAuthUser, requireRole } from '@/lib/auth'
  *               items:
  *                 $ref: '#/components/schemas/Profile'
  *       401:
- *         description: Unauthorized
+ *         description: Не авторизован
  *       403:
- *         description: Forbidden
+ *         description: Доступ запрещён
  */
 export async function GET(req: NextRequest) {
   const user = await getAuthUser(req)

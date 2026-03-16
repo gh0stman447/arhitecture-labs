@@ -6,7 +6,7 @@ import { supabase } from '@/lib/supabase'
  * /api/auth/register:
  *   post:
  *     tags: [Auth]
- *     summary: Register a new user
+ *     summary: Регистрация нового пользователя
  *     requestBody:
  *       required: true
  *       content:
@@ -23,11 +23,11 @@ import { supabase } from '@/lib/supabase'
  *                 minLength: 6
  *     responses:
  *       201:
- *         description: User registered successfully
+ *         description: Пользователь успешно зарегистрирован
  *       400:
- *         description: Invalid input
+ *         description: Неверные данные
  *       409:
- *         description: Email already in use
+ *         description: Email уже используется
  */
 export async function POST(req: NextRequest) {
   const { email, password } = await req.json()

@@ -8,11 +8,11 @@ import crypto from 'crypto'
  * /api/signature/signed-message:
  *   get:
  *     tags: [Signature]
- *     summary: "Scenario 2: Get a randomly signed message from server"
- *     description: Server generates a random message, signs it with its private key, and returns both. Client can verify using the server's public key.
+ *     summary: "Сценарий 2: Получить случайное подписанное сообщение от сервера"
+ *     description: Сервер генерирует случайное сообщение, подписывает его своим приватным ключом и возвращает оба значения. Клиент может верифицировать подпись публичным ключом сервера.
  *     responses:
  *       200:
- *         description: Signed message from server
+ *         description: Подписанное сообщение от сервера
  *         content:
  *           application/json:
  *             schema:

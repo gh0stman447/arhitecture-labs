@@ -7,12 +7,12 @@ import { createClient } from '@supabase/supabase-js'
  * /api/auth/me:
  *   get:
  *     tags: [Auth]
- *     summary: Get current user profile
+ *     summary: Получить профиль текущего пользователя
  *     security:
  *       - bearerAuth: []
  *     responses:
  *       200:
- *         description: Current user profile
+ *         description: Профиль текущего пользователя
  *         content:
  *           application/json:
  *             schema:
@@ -26,7 +26,7 @@ import { createClient } from '@supabase/supabase-js'
  *                   type: string
  *                   enum: [admin, moderator, viewer]
  *       401:
- *         description: Unauthorized
+ *         description: Не авторизован
  */
 export async function GET(req: NextRequest) {
   const token = req.headers.get('authorization')?.replace('Bearer ', '')

@@ -6,14 +6,14 @@ import { supabase } from '@/lib/supabase'
  * /api/auth/logout:
  *   post:
  *     tags: [Auth]
- *     summary: Logout current user
+ *     summary: Выход из системы
  *     security:
  *       - bearerAuth: []
  *     responses:
  *       200:
- *         description: Logged out successfully
+ *         description: Выход выполнен успешно
  *       401:
- *         description: Not authenticated
+ *         description: Не авторизован
  */
 export async function POST(req: NextRequest) {
   const token = req.headers.get('authorization')?.replace('Bearer ', '')

@@ -8,7 +8,7 @@ export function getApiDocs() {
       info: {
         title: 'Architecture Labs API',
         version: '1.0.0',
-        description: 'Three-tier architecture with authentication, digital signatures, and currency rates',
+        description: 'Трёхзвенная архитектура с аутентификацией, электронной цифровой подписью и курсами валют',
       },
       components: {
         securitySchemes: {

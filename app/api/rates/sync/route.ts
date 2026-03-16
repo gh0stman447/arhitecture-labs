@@ -8,8 +8,8 @@ import { CURRENCIES } from '@/lib/rates-config'
  * /api/rates/sync:
  *   post:
  *     tags: [Rates]
- *     summary: Sync exchange rates from CNB
- *     description: Without body syncs today's rates. With startDate/endDate syncs a date range.
+ *     summary: Синхронизировать курсы валют из ЧНБ
+ *     description: Без тела запроса синхронизирует курсы за сегодня. С параметрами startDate/endDate — за указанный период.
  *     requestBody:
  *       content:
  *         application/json:
@@ -31,7 +31,7 @@ import { CURRENCIES } from '@/lib/rates-config'
  *                 example: ["USD", "EUR"]
  *     responses:
  *       200:
- *         description: Sync result
+ *         description: Результат синхронизации
  *         content:
  *           application/json:
  *             schema:
