@@ -84,9 +84,7 @@ export default function DashboardPage() {
                   <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">Email</th>
                   <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">Role</th>
                   <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">Created</th>
-                  {me?.role === 'admin' && (
-                    <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">Actions</th>
-                  )}
+                  <th className="text-left px-4 py-3 text-sm font-medium text-gray-600">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y">
@@ -111,8 +109,14 @@ export default function DashboardPage() {
                     <td className="px-4 py-3 text-sm text-gray-500">
                       {new Date(user.created_at).toLocaleDateString()}
                     </td>
-                    {me?.role === 'admin' && (
-                      <td className="px-4 py-3">
+                    <td className="px-4 py-3 flex gap-3">
+                      <a
+                        href={`/dashboard/users/${user.id}`}
+                        className="text-blue-600 text-sm hover:underline"
+                      >
+                        View
+                      </a>
+                      {me?.role === 'admin' && (
                         <button
                           onClick={() => deleteUser(user.id)}
                           disabled={user.id === me.id}
@@ -120,8 +124,8 @@ export default function DashboardPage() {
                         >
                           Delete
                         </button>
-                      </td>
-                    )}
+                      )}
+                    </td>
                   </tr>
                 ))}
               </tbody>

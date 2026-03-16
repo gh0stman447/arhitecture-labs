@@ -74,7 +74,8 @@ import { getAuthUser, requireRole } from '@/lib/auth'
  *         description: Forbidden
  */
 
-export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   const user = await getAuthUser(req)
   if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   if (!requireRole(user.role, 'admin', 'moderator')) {
@@ -84,14 +85,15 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
   const { data, error } = await supabaseAdmin
     .from('profiles')
     .select('*')
-    .eq('id', params.id)
+    .eq('id', id)
     .single()
 
   if (error || !data) return NextResponse.json({ error: 'User not found' }, { status: 404 })
   return NextResponse.json(data)
 }
 
-export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   const user = await getAuthUser(req)
   if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   if (!requireRole(user.role, 'admin')) {
@@ -107,7 +109,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
   const { data, error } = await supabaseAdmin
     .from('profiles')
     .update({ role })
-    .eq('id', params.id)
+    .eq('id', id)
     .select()
     .single()
 
@@ -115,14 +117,15 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
   return NextResponse.json(data)
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   const user = await getAuthUser(req)
   if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   if (!requireRole(user.role, 'admin')) {
     return NextResponse.json({ error: 'Forbidden: admin only' }, { status: 403 })
   }
 
-  const { error } = await supabaseAdmin.auth.admin.deleteUser(params.id)
+  const { error } = await supabaseAdmin.auth.admin.deleteUser(id)
   if (error) return NextResponse.json({ error: error.message }, { status: 500 })
 
   return NextResponse.json({ message: 'User deleted successfully' })
