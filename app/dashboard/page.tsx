@@ -69,6 +69,7 @@ export default function DashboardPage() {
             <p className="text-gray-600">{me?.email} — <span className="font-medium capitalize">{me?.role}</span></p>
           </div>
           <div className="flex gap-3">
+            <a href="/dashboard/rates" className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 text-sm">Курсы</a>
             <a href="/dashboard/signature" className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 text-sm">ЭЦП</a>
             <a href="/docs" className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 text-sm">API Docs</a>
             <button onClick={logout} className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 text-sm">
